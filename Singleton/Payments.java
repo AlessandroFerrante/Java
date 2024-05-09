@@ -36,7 +36,7 @@ public class Payments {
      * Private constructor used to prevent new instances 
      * of the Logs class from being created from outside.
      */
-    private Payments() {
+    Payments() {
     }
     /**
      * 
