@@ -1,7 +1,7 @@
 /**
  * @implNote
- * Suspended svolge il ruolo di `ConcreteCreator` e rappresenta uno studente sospeso. |
- * Suspended plays the role of `ConcreteCreator` and represents a suspended student.
+ * Suspended svolge il ruolo di `ConcreteProduct` e rappresenta uno studente sospeso. |
+ * Suspended plays the role of `ConcreteProduct` and represents a suspended student.
  */
 public class Suspended implements IStudent {
     private float average;
