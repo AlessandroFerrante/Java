@@ -1,26 +1,26 @@
 # DevicesFactory
 
-- **AbstractFActory**: `DeviceHub`;
+- **AbstractFActory**: `DevicesFactory`;
 - **ConcreteFactories**: `EliteFactory`, `MediumFactory`, `LiteFactory`;
 - **AbstractProducts**:  `Laptop`, `Smartphone`, `Tablet`;
 - **Products**: `EliteBook`, `ElitePhone`, `EliteTab`, `MediumBook`, `MediumPhone`, `MediumTab`, `LiteBook`, `LitePhone`, `LiteTab`;
-- **Client**: `DevicesHub`; 
+- **Client**: `Hub`; 
 
-### Struttura
+### Structure
 
 ```mermaid
 ---
 title: DevicesFactory
 ---
 classDiagram
-    Hub --> DeviceHub
+    Hub --> DevicesFactory
     Hub --> Laptop
     Hub --> Smartphone
     Hub --> Tablet
-
-    DeviceHub <|.. EliteFactory
-    DeviceHub <|.. MediumFactory
-    DeviceHub <|.. LiteFactory
+    
+    DevicesFactory <|.. EliteFactory
+    DevicesFactory <|.. MediumFactory
+    DevicesFactory <|.. LiteFactory
 
     Laptop <|.. EliteBook
     Laptop <|.. MediumBook
@@ -42,14 +42,21 @@ classDiagram
     LiteFactory --> LitePhone 
     LiteFactory --> LiteTab    
 
-    <<interface>> DeviceHub
+    <<interface>> DevicesFactory
     <<interface>> Laptop
     <<interface>> Smartphone
     <<interface>> Tablet
-    class Hub{
-        
+    
+    class Hub {
+        - DevicesFactory devices
+        + Hub(deviceType: String)
+        + createBook() Laptop
+        + createPhone() Smartphone
+        + createTab() Tablet
+        + main(args: String[]) : void
     }
-    class DeviceHub {
+
+    class DevicesFactory {
         + createLaptop() Laptop
         + createSmartphone() Smartphone
         + createTab() Tablet
