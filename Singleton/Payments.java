@@ -31,10 +31,10 @@ public class Payments {
     
     /**
      * @implSpec 
-     * Costruttore privato utilizzato per impedire CHE nuove istanze
-     * della classe Logs vengano create dall'esterno. |
+     * Costruttore privato utilizzato per impedire che nuove istanze
+     * della classe Payments vengano create dall'esterno. |
      * Private constructor used to prevent new instances 
-     * of the Logs class from being created from outside.
+     * of the Payments class from being created from outside.
      */
     Payments() {
     }
