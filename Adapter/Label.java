@@ -23,9 +23,15 @@ public class Label implements ILabel{
      */
     public Label(String prefix)  {
         p = prefix;
-        ls = new LabelServer(p);
+        // ls = new LabelServer(p); // removed for the lazy initialization
     }
     
+    // Lazy initialization
+    private void LazyInitialization(){
+        if(ls == null)
+            ls = new LabelServer(p);
+    }
+
     /**
      * L'adattamento consiste nel chiamare un metodo con nome diverso sull'Adaptee. |
      * Adaptation consists of calling a differently named method on the Adaptee
@@ -36,6 +42,7 @@ public class Label implements ILabel{
      */
     @Override
     public String getNextLabel() {
+        LazyInitialization();
         return ls.serveNextLabel();
     }
 
@@ -49,6 +56,7 @@ public class Label implements ILabel{
      */
     @Override
     public boolean checkUsed(int k) {
+        LazyInitialization();
         return (ls.getCount() >= k);
     }
 
@@ -68,6 +76,7 @@ public class Label implements ILabel{
      */
     @Override
     public void insertTag(String s) {
+        LazyInitialization();
         if (l.contains(s)) ls.change(s);
     }
     
